@@ -1,13 +1,14 @@
-const puzzleEl = document.createElement('#puzzle')
-const guessesEl = document.createElement('#guesses')
-const game1 = new Hangman('Cat', 2)
+const puzzleEl = document.querySelector('#puzzle')
+const guessesEl = document.querySelector('#guesses')
+const game1 = new Hangman('Cat', 3)
 
 puzzleEl.textContent = game1.getPuzzle()
 guessesEl.textContent = game1.remainingGuesses
 
-Window.addEventListener('keypress', function(e) {
+window.addEventListener('keypress', function(e) {
     const guess = String.fromCharCode(e.charCode)
     game1.makeGuess(guess)
     puzzleEl.textContent = game1.getPuzzle()
     guessesEl.textContent = game1.remainingGuesses
+    console.log(game1.status)
 })
