@@ -1,16 +1,32 @@
 const Hangman = function (word, remainingGuesses) {
     this.word = word.toLowerCase().split(""),
-    this.guessedLetters = ['c', 'a']
     this.remainingGuesses = remainingGuesses
+    this.guessedLetters = []
 }
 
 Hangman.prototype.getPuzzle = function() {
     return this.word.map(letter => {
-        return(this.guessedLetters.includes(letter)) ? letter : '*'
+        if (this.guessedLetters.includes(letter) || letter === ' ') {
+            return letter
+        } else {
+            return '*'
+        }
     }).join("")
 }
 
-const firstGame = new Hangman('cat', 3,)
-const secondGame = new Hangman('dog', 3)
+Hangman.prototype.makeGuess = function(guess) {
+    guess = guess.toLowerCase()
+    if (!this.guessedLetters.includes(guess)) {
+        this.guessedLetters.push(guess)
+
+        if (!this.word.includes(guess)) {
+            this.remainingGuesses--
+        }
+    }
+}
+
+
+
+
 
 
