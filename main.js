@@ -18,7 +18,7 @@ class Hangman {
         }
     }
 
-    getStatusMessage() {
+    get statusMessage() {
         if (this.status === 'playing') {
             return `Guesses left: ${this.remainingGuesses}`
         } else if (this.status === 'failed') {
@@ -28,7 +28,7 @@ class Hangman {
         }        
     }
 
-    getPuzzle() {
+    get puzzle() {
         return this.word.map(letter => {
             if (this.guessedLetters.includes(letter) || letter === ' ') {
                 return letter
