@@ -10,4 +10,4 @@ window.addEventListener('keypress', function(e) {
     game1.makeGuess(guess)
     puzzleEl.textContent = game1.puzzle
     guessesEl.textContent = game1.statusMessage
-})
+}) 
